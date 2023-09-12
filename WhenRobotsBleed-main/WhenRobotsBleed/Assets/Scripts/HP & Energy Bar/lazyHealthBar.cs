@@ -9,7 +9,6 @@ public class lazyHealthBar : MonoBehaviour
     public float damage = 100;
     public Image barFast, barSlow;
     public PlayerHealth playerHeath; 
-    // Start is called before the first frame update
 
     void Start()
     {
@@ -19,8 +18,8 @@ public class lazyHealthBar : MonoBehaviour
         currHPSlow = maxHP;
     }
 
-    // Update is called once per frame
     float t = 0;
+
     void Update()
     {
         //interpolating slowHP and currentHP inf unequal

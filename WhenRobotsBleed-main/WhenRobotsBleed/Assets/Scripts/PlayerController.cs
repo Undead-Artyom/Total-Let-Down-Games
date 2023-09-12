@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[DefaultExecutionOrder(300)]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
@@ -31,17 +33,20 @@ public class PlayerController : MonoBehaviour
     public float dashingPower = 24f;
     public float dashingTime = 0.2f;
     public float dashingCooldown = 1f;
-
+    
     Vector2 move;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>(); 
         coll = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        Debug.Log("");
+    }
+
     void Update()
     {
         if (isDashing)
@@ -133,9 +138,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-         if (isDashing)
+        if (isDashing)
         {
             return;
         }

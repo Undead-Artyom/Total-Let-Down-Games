@@ -18,14 +18,20 @@ public class SimpleEnemyAI : MonoBehaviour
     private bool isPatrolling = true;
     private bool isAttacking = false;
 
-    private void Awake()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+    }
+
+    void Start()
+    {
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void FixedUpdate()
+
+    void FixedUpdate()
     {
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
 

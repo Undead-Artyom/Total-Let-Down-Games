@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(300)]
 public class HunterAI : MonoBehaviour
 {
     [SerializeField] private float speed = 3f;
@@ -21,7 +22,7 @@ public class HunterAI : MonoBehaviour
     private bool isPatrolling = true;
     private bool isAttacking = false;
 
-    private void Awake()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -29,7 +30,7 @@ public class HunterAI : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
         // Chasing

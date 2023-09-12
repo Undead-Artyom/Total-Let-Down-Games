@@ -10,14 +10,14 @@ public class PlayerAttack : MonoBehaviour
     private PlayerController playerController;
     private float cooldownTimer = 1;
 
-    private void Awake()
+    void Awake()
     {
         playerController = GetComponent<PlayerController>();
     }
 
-    private void Update()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && cooldownTimer > attackCooldown && playerController.canAttack())
+        if (Input.GetKeyDown(KeyCode.X) && (cooldownTimer > attackCooldown) && playerController.canAttack())
         {
             Attack();
         }

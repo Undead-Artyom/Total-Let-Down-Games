@@ -9,7 +9,7 @@ public class PowerUpItem : MonoBehaviour
     public bool gunGrant = false;
     public bool dashGrant = false;
     public AudioClip powerUpSound;
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (isActive && collision.gameObject.GetComponent<PlayerController>())
         {
@@ -33,8 +33,11 @@ public class PowerUpItem : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    /*
+    void OnDestroy()
     {
 
     }
+    */
+    
 }

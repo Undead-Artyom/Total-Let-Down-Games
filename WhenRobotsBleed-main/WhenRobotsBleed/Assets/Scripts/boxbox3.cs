@@ -12,7 +12,7 @@ public class boxbox3 : MonoBehaviour
 
     public bool isOn = false;
 
-    void Start()
+    void Awake()
     {
         // set the switch to off sprite
         gameObject.GetComponent<SpriteRenderer>().sprite = switchOff.GetComponent<SpriteRenderer>().sprite;

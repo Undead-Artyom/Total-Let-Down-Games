@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject player;
     public Transform respawnPoint; 
 
-    private void Awake()
+    void Awake()
     {
         currentHealth = maxHealth;
 
@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     //when player die
-    void Die()
+    private void Die()
     {
         Debug.Log("player died");
         player.transform.position = respawnPoint.position;

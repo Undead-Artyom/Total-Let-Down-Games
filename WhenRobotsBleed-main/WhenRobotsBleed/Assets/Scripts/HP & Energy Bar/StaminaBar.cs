@@ -12,14 +12,14 @@ public class StaminaBar : MonoBehaviour
 
     public float reductionAmount = 20f; // The amount of stamina to reduce when the button is clicked. Test
 
-    private void Start()
+    void Start()
     {
         currentStamina = maxStamina;
         currentStaminaSlow = maxStamina;
         SetMaxStamina(maxStamina);
     }
 
-    private void Update()
+    void Update()
     {
         // Regenerate stamina if not moving.
         if (Mathf.Approximately(Input.GetAxis("Horizontal"), 0f) && Mathf.Approximately(Input.GetAxis("Vertical"), 0f))

@@ -10,12 +10,12 @@ public class Bullet : MonoBehaviour
     private float lifetime;
 
     private BoxCollider2D boxCollider;
-    private void Awake()
+    void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    private void Update()
+    void Update()
     {
         if (hit) return;
         float mSpeed = speed * Time.deltaTime * direction;
@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         hit = true;
         boxCollider.enabled = false ;

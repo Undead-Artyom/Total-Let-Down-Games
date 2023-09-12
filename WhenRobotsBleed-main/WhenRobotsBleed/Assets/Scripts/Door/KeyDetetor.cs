@@ -14,7 +14,7 @@ public class KeyDetetor : MonoBehaviour
     [SerializeField]
     private UnityEvent _colliderExit;
 
-    private void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.GetComponent(_colliderScript))
         {
@@ -22,7 +22,7 @@ public class KeyDetetor : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D col)
+    void OnCollisionExit2D(Collision2D col)
     {
         if(col.gameObject.GetComponent(_colliderScript))
         {

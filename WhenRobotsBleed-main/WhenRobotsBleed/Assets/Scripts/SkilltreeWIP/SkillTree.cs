@@ -8,7 +8,7 @@ public class SkillTree : MonoBehaviour
     [SerializeField] private GameObject skillPrefab;
     [SerializeField] private float skillSpacing = 2f;
 
-    private void Start()
+    void Start()
     {
         // Create the skills
         for (int i = 0; i < numSkills; i++)

@@ -17,7 +17,7 @@ public class PlayerMovementSFX : MonoBehaviour
    
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pc = GetComponent<PlayerController>();
         weaponShoot = GetComponent<WeponShoot>();
@@ -47,11 +47,13 @@ public class PlayerMovementSFX : MonoBehaviour
         {
             asource.PlayOneShot(DashClip, 0.5f);
         }
-
-        if (Input.GetButtonDown("Jump"))
+                
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             asource.PlayOneShot(JumpClip, 0.8f);
         }
+
+        //make a choice. Either use the keycodes or use the "strings". Jump is unclear
 
         if (weaponShoot.hasGun && Input.GetKeyDown(KeyCode.X))
         {

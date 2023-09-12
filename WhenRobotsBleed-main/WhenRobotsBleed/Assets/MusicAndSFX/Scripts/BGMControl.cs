@@ -5,10 +5,8 @@ using UnityEngine.Audio;
 
 public class BGMControl : MonoBehaviour
 {
-    
     public AudioSource LevelBGM;
    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +18,9 @@ public class BGMControl : MonoBehaviour
     {
 
     }
+
     public void ChangeBGM(AudioClip music)
     {
-
         if (LevelBGM.clip.name == music.name)
             return;
 

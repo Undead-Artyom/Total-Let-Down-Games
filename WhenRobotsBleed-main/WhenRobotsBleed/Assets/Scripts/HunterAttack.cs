@@ -11,13 +11,13 @@ public class HunterAttack : MonoBehaviour
     private HunterAI trackPatrolling;
     private bool canAttack = true;
 
-    private void Start()
+    void Start()
     {
         playerHealth = FindObjectOfType<PlayerHealth>();
         trackPatrolling = gameObject.GetComponent<HunterAI>();
     }
 
-    private void Update()
+    void Update()
     {
         if (canAttack && !trackPatrolling.IsPatrolling() && Vector2.Distance(transform.position, playerHealth.transform.position) <= 1.5f)
         {

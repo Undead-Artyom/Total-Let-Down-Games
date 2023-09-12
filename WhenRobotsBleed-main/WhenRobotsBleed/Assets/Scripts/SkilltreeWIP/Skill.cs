@@ -19,7 +19,7 @@ public class Skill : MonoBehaviour
 
     private LineRenderer lineRenderer;
 
-    private void Start()
+    void Start()
     {
         // Create the line renderer
         GameObject line = Instantiate(linePrefab, transform);

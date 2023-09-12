@@ -11,15 +11,15 @@ public class EnemyAttack : MonoBehaviour
     private SimpleEnemyAI trackPatrolling;
     private bool canAttack = true;
 
-    private void Start()
+    void Start()
     {
         playerHealth = FindObjectOfType<PlayerHealth>();
         trackPatrolling = gameObject.GetComponent<SimpleEnemyAI>();
     }
 
-    private void Update()
+    void Update()
     {
-        if (canAttack && gameObject.GetComponent<SimpleEnemyAI>().IsPatrolling() && Vector2.Distance(transform.position, playerHealth.transform.position) <= 1.5f)
+        if (canAttack && trackPatrolling.IsPatrolling() && Vector2.Distance(transform.position, playerHealth.transform.position) <= 1.5f)
         {
             playerHealth.TakeDamage(damageAmount);
             Debug.Log("Player took " + damageAmount + " damage");

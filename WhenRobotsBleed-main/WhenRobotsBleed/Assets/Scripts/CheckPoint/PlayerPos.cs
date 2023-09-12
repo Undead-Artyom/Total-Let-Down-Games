@@ -13,7 +13,6 @@ public class PlayerPos : MonoBehaviour
         transform.position = gm.lastCheckPointPos;
     }
 
-
     void Update()
     {
         //test death and respawn 
