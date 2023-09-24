@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2a8991dcf2b23408fed2e0d3ea710b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  _movementSpeed: 3
   patrolDistance: 2
   detectDistance: 5
   jumpForce: 15

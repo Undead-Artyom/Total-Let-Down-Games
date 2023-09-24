@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimpleEnemyAI : MonoBehaviour
 {
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float _movementSpeed = 0f;
     [SerializeField] private float patrolDistance = 5f;
     [SerializeField] private float detectDistance = 3f;
     [SerializeField] private float disengageDistance = 3f;
@@ -99,7 +99,7 @@ public class SimpleEnemyAI : MonoBehaviour
 
         if (!isAttacking)
         {
-            rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+            rb.velocity = new Vector2(direction.x * _movementSpeed, rb.velocity.y);
         }
     }
 

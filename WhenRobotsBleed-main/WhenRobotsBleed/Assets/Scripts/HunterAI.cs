@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[DefaultExecutionOrder(300)]
 public class HunterAI : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float _movementSpeed = 0f;
     [SerializeField] private float patrolDistance = 5f;
     [SerializeField] private float detectDistance = 10f;
     [SerializeField] private float jumpForce = 15f;
@@ -22,12 +21,53 @@ public class HunterAI : MonoBehaviour
     private bool isPatrolling = true;
     private bool isAttacking = false;
 
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        spriteRenderer.flipX = !spriteRenderer.flipX;
+    }
+    private bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
+
+        if (hit.collider != null)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    private bool IsOnFloatingPlatform()
+    {
+        // Check if enemy is standing on a floating platform
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f, floatingPlatformsLayer);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject != gameObject)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool IsPlayerOnFloatingPlatform()
+    {
+        // Check if the player is on a floating platform
+        RaycastHit2D hit = Physics2D.Raycast(target.position, Vector2.down, Mathf.Infinity, floatingPlatformsLayer);
+        return hit.collider != null;
+    }
+
+    public bool IsPatrolling()
+    {
+        return isPatrolling;
+    }
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-
     }
 
     void FixedUpdate()
@@ -108,50 +148,8 @@ public class HunterAI : MonoBehaviour
 
         if (!isAttacking)
         {
-            rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+            rb.velocity = new Vector2(direction.x * _movementSpeed, rb.velocity.y);
         }
-    }
-
-    private void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        spriteRenderer.flipX = !spriteRenderer.flipX;
-    }
-    private bool IsGrounded()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-
-        if (hit.collider != null)
-        {
-            return true;
-        }
-
-        return false;
-    }
-    private bool IsOnFloatingPlatform()
-    {
-        // Check if enemy is standing on a floating platform
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f, floatingPlatformsLayer);
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.gameObject != gameObject)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private bool IsPlayerOnFloatingPlatform()
-    {
-        // Check if the player is on a floating platform
-        RaycastHit2D hit = Physics2D.Raycast(target.position, Vector2.down, Mathf.Infinity, floatingPlatformsLayer);
-        return hit.collider != null;
-    }
-
-    public bool IsPatrolling()
-    {
-        return isPatrolling;
     }
 }
 
