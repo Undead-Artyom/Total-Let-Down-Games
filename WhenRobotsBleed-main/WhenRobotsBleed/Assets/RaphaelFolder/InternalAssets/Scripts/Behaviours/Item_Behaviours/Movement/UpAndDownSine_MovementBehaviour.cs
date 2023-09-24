@@ -26,7 +26,7 @@ public class UpAndDownSine_MovementBehaviour : LerpMovementBehaviour
 
     void Awake()
     {
-        _pointInSpacePrefab = Resources.Load("PointInSpace") as GameObject;
+        _pointInSpacePrefab = Resources.Load("Prefabs/PointInSpace") as GameObject;
         _pointsInSpace.Insert(0, (GameObject)GameObject.Instantiate(_pointInSpacePrefab, new Vector3(transform.position.x, transform.position.y+_pointInSpaceA_Distance,transform.position.z), Quaternion.identity));
         _pointsInSpace.Insert(1, (GameObject)GameObject.Instantiate(_pointInSpacePrefab, new Vector3(transform.position.x, transform.position.y-_pointInSpaceB_Distance,transform.position.z), Quaternion.identity));
         //_pointInSpaceA = (GameObject)GameObject.Instantiate(_pointInSpacePrefab, new Vector3(transform.position.x, transform.position.y+_pointInSpaceA_Distance,transform.position.z), Quaternion.identity);
