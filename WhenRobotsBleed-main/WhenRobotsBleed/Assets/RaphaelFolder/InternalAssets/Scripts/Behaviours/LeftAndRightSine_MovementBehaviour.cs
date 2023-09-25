@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftAndRightSine_MovementBehaviour : LerpMovementBehaviour
+public class LeftAndRightSine_MovementBehaviour : BetweenPointsInSpace_MovementBehaviour
 {
     //private GameObject _pointInSpaceA;
     [SerializeField]

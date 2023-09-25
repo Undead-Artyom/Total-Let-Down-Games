@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class UpAndDownSine_MovementBehaviour : LerpMovementBehaviour
+public class UpAndDownSine_MovementBehaviour : BetweenPointsInSpace_MovementBehaviour
 {
     //private GameObject _pointInSpaceA;
     [SerializeField]
