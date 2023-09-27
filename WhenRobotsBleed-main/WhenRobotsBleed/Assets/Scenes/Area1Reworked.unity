@@ -32891,7 +32891,7 @@ MonoBehaviour:
   depletionRate: 10
   barFast: {fileID: 1181007105}
   barSlow: {fileID: 1181007106}
-  regenRate: 20
+  regenRate: 40
   reductionAmount: 20
 --- !u!114 &1989870524
 MonoBehaviour:
