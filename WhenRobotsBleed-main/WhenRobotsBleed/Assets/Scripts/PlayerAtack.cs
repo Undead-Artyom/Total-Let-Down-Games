@@ -26,7 +26,7 @@ public class PlayerAtack : MonoBehaviour
     {
         if (hasSword)
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.J))
             {
                 Attack();
             }

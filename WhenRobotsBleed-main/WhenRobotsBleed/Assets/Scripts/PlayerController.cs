@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         //dash ablility 
         if (hasDash)
         {
-            if (Input.GetKeyDown(KeyCode.Z) && canDash)
+            if (Input.GetKeyDown(KeyCode.L) && canDash)
             {
                 StartCoroutine(Dash());
             }

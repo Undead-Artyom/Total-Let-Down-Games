@@ -43,7 +43,7 @@ public class PlayerMovementSFX : MonoBehaviour
             asource.pitch = Random.Range(0.8f, 1.1f);
         }
 
-        if (pc.hasDash == true && Input.GetKeyDown(KeyCode.Z))
+        if (pc.hasDash == true && Input.GetKeyDown(KeyCode.L))
         {
             asource.PlayOneShot(DashClip, 0.5f);
         }
@@ -55,13 +55,13 @@ public class PlayerMovementSFX : MonoBehaviour
 
         //make a choice. Either use the keycodes or use the "strings". Jump is unclear
 
-        if (weaponShoot.hasGun && Input.GetKeyDown(KeyCode.X))
+        if (weaponShoot.hasGun && Input.GetKeyDown(KeyCode.K))
         {
             asource.PlayOneShot(BlasterClip, 0.8f);
         }
 
 
-        if (playerAttack.hasSword && Input.GetKeyDown(KeyCode.C))
+        if (playerAttack.hasSword && Input.GetKeyDown(KeyCode.J))
         {
             asource.PlayOneShot(AttackClip, 0.8f);
         }
