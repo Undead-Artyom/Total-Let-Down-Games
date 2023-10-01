@@ -196,9 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6f25278e950984080ee2fc32156f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashClip: {fileID: 8300000, guid: 15026e2bb2cdb8f4e8d08f0e6c7ae462, type: 3}
+  DashClip: {fileID: 8300000, guid: 5ec038b2396ee02498c7a929f57436b0, type: 3}
   JumpClip: {fileID: 8300000, guid: ff00a4ea52bf3954fbfda56bb0477e05, type: 3}
-  BlasterClip: {fileID: 8300000, guid: 83f5ff9d86a34eb44bf1a7d27b7eb26d, type: 3}
+  BlasterClip: {fileID: 8300000, guid: b5d9a921c97b000458354a4f57a87a9c, type: 3}
   AttackClip: {fileID: 8300000, guid: a319f788d22de154a985a22ea1ba6b91, type: 3}
 --- !u!114 &1174187547098028927
 MonoBehaviour:
