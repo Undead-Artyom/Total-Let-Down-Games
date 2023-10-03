@@ -33,13 +33,16 @@ public class PlayerController : MonoBehaviour
     public float dashingPower = 24f;
     public float dashingTime = 0.2f;
     public float dashingCooldown = 1f;
-    
+
+    private Animator animator;
+
     Vector2 move;
     
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>(); 
         coll = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -60,6 +63,8 @@ public class PlayerController : MonoBehaviour
         // Handle movement input
         // Vector2 movement = new Vector2(horizontalInput * speed, rb.velocity.y);
         horizontal = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
 
 
         Flip();
