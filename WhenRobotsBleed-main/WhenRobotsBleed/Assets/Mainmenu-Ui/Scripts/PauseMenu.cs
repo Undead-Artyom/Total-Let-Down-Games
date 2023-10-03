@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject optionsScreen;
 
+    public GameObject controlsScreen;
+
     public GameObject pauseMenuUI;
 
     // Update is called once per frame
@@ -46,6 +48,16 @@ public class PauseMenu : MonoBehaviour
     public void CloseOptions()
     {
         optionsScreen.SetActive(false);
+    }
+
+    public void OpenControls()
+    {
+        controlsScreen.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        controlsScreen.SetActive(false);
     }
 
     public void QuitGame()
