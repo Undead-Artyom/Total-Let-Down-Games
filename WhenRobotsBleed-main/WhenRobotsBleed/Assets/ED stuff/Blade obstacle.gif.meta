@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d4f90a04274338543a9ff997b2dca61c
+guid: fa5b71c2ae2f47e45ae124a4a99a89a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,91 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: WalkerWalk_0
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 326
-        width: 143
-        height: 241
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43324b26c6347b14ba1a24a788533062
-      internalID: -1210130513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkerWalk_1
-      rect:
-        serializedVersion: 2
-        x: 386
-        y: 329
-        width: 134
-        height: 230
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 077b4965e18d53647acd060d1ab896e0
-      internalID: 1102178204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkerWalk_2
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 26
-        width: 143
-        height: 241
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fecd7740b052cce478a3cf5d44282027
-      internalID: 1663761927
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkerWalk_3
-      rect:
-        serializedVersion: 2
-        x: 366
-        y: 30
-        width: 153
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa8aea52ddf18e54e88e30d40a13fdec
-      internalID: -1141645912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -198,11 +114,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      WalkerWalk_0: -1210130513
-      WalkerWalk_1: 1102178204
-      WalkerWalk_2: 1663761927
-      WalkerWalk_3: -1141645912
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

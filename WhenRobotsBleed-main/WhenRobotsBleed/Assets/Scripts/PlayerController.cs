@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+    //keycard check 
+    [SerializeField] public bool hasKeyCard;
+    [SerializeField] private int keycards;
+
     Vector2 move;
     
     void Awake()
@@ -194,6 +198,22 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashingTime);
         canDash = true;
+    }
+
+    public void HasAKeyCard()
+    {
+        hasKeyCard = true;
+        keycards += 1;
+        print("keycards = " + keycards);
+        print(hasKeyCard);
+    }
+
+    public void KeyCardUsed()
+    {
+        if (hasKeyCard)
+        {
+            hasKeyCard = false;
+        }      
     }
 }
 
