@@ -118,6 +118,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 hasJump = false;
                 jumpBufferCounter = 0f;
+                
             }
             //this give variable jumps 
             else if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
@@ -133,12 +134,14 @@ public class PlayerController : MonoBehaviour
         {
             hasJump = true;
             coyoteTimeCounter = coyoteTime;
+
         }
         else
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
 
+        animator.SetBool("IsJumping", !isGrounded);
         //rb.velocity = movement;
 
     }

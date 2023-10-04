@@ -10994,7 +10994,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 115
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -49992,7 +49992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895c01d82a950aa43bebcc8edbe76000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
   barFast: {fileID: 385474988}
   barSlow: {fileID: 385474989}
   playerHeath: {fileID: 1515604292}
