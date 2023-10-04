@@ -7,12 +7,10 @@ public class MapController : MonoBehaviour
 {
     private bool isPaused = false;
     private string currentSceneName;
-    private GameObject mapPanel; // Reference to the UI panel
 
     private void Start()
     {
         currentSceneName = SceneManager.GetActiveScene().name;
-        mapPanel = GameObject.Find("Maps");
     }
 
     private void Update()
@@ -34,12 +32,6 @@ public class MapController : MonoBehaviour
             {
                 child.gameObject.SetActive(isPaused); // Show or hide the map
             }
-        }
-
-        if (mapPanel != null)
-        {
-            // Show or hide the UI panel
-            mapPanel.SetActive(isPaused);
         }
 
         if (isPaused)
