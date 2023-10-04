@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class lazyHealthBar : MonoBehaviour
 {
     private float maxHP = 100, currHP, currHPSlow;
-    public float damage = 100;
+    //public float damage = 100;
     public Image barFast, barSlow;
     public PlayerHealth playerHeath; 
 
@@ -39,8 +39,8 @@ public class lazyHealthBar : MonoBehaviour
         barSlow.fillAmount = currHPSlow / maxHP;
     }
 
-    public void loseHP()
+    /*public void loseHP()
     {
         currHP -= damage;
-    }
+    }*/
 }
