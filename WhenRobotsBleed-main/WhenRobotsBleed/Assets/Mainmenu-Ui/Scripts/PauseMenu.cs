@@ -20,6 +20,8 @@ public class PauseMenu : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
+                optionsScreen.SetActive(false);
+                controlsScreen.SetActive(false);
             }
             else
             {
