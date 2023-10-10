@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GM
   - Sword
+  - Bullet
   layers:
   - Default
   - TransparentFX
