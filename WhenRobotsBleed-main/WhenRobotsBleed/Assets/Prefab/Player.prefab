@@ -168,7 +168,7 @@ MonoBehaviour:
   hasDash: 0
   dashingPower: 24
   dashingTime: 0.2
-  dashingCooldown: 1
+  dashingCooldown: 4
   hasKeyCard: 0
   keycards: 0
 --- !u!114 &959832947672091265

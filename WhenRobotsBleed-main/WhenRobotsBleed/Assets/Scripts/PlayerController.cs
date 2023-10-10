@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public float dashingPower = 24f;
     public float dashingTime = 0.2f;
     public float dashingCooldown = 1f;
+    private float dashCD;
 
     private Animator animator;
 
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
         coll = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        dashCD = dashingCooldown; 
     }
 
     void Start()
@@ -56,6 +58,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (dashCD >= 0)
+        {   
+            dashCD -= Time.deltaTime;
+        }
+
         if (isDashing)
         {
             return;
@@ -87,7 +94,12 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.L) && canDash)
             {
-                StartCoroutine(Dash());
+                if (dashCD <= 0f)
+                {
+                    StartCoroutine(Dash());
+                    dashCD = dashingCooldown;
+                }
+
             }
         }
 
