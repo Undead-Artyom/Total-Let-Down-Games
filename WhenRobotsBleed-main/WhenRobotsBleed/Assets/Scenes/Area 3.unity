@@ -142954,6 +142954,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8301517585667603055, guid: e34efc6c1c29c5c47a78eef61f476487, type: 3}
+      propertyPath: sceneNextlevel
+      value: Area 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301517585667603055, guid: e34efc6c1c29c5c47a78eef61f476487, type: 3}
       propertyPath: sceneBuildIndex
       value: 6
       objectReference: {fileID: 0}
