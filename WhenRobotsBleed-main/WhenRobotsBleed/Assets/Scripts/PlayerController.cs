@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
         coll = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
-        dashCD = dashingCooldown; 
+        //dashCD = dashingCooldown;
     }
 
     void Start()

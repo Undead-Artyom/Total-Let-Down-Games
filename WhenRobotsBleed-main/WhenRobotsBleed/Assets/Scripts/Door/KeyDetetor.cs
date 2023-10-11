@@ -14,19 +14,27 @@ public class KeyDetetor : MonoBehaviour
     [SerializeField]
     private UnityEvent _colliderExit;
 
-    void OnCollisionEnter2D(Collision2D col)
+    [SerializeField] public bool gotKey = false; 
+
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.GetComponent(_colliderScript))
+        if (gotKey)
         {
-            _colliderEntered?.Invoke();
+            if (col.gameObject.GetComponent(_colliderScript))
+            {
+                _colliderEntered?.Invoke();
+            }
         }
     }
 
-    void OnCollisionExit2D(Collision2D col)
+    void OnTriggerExit2D(Collider2D col)
     {
-        if(col.gameObject.GetComponent(_colliderScript))
+        if (gotKey)
         {
-            _colliderExit?.Invoke();
+            if (col.gameObject.GetComponent(_colliderScript))
+            {
+                _colliderExit?.Invoke();
+            }
         }
     }
 

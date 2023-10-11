@@ -166,9 +166,9 @@ MonoBehaviour:
   coyoteTime: 0.2
   jumpBufferTime: 0.2
   hasDash: 0
-  dashingPower: 24
-  dashingTime: 0.2
-  dashingCooldown: 4
+  dashingPower: 10
+  dashingTime: 0.5
+  dashingCooldown: 2
   hasKeyCard: 0
   keycards: 0
 --- !u!114 &959832947672091265
