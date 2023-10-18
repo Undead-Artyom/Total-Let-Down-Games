@@ -13,7 +13,8 @@ public class AttackArea : MonoBehaviour
 		{
 			enemy.TakeDamage(damage);
 			Debug.Log("enemy take melee" + damage);
+			return;
 		}
-
+		return;
 	}
 }
