@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     //keycard check 
     [SerializeField] public bool hasKeyCard;
     [SerializeField] private int keycards;
+    static int totalKeyCards;
+    [SerializeField] public bool AllKeyCards = false;
 
     Vector2 move;
     
@@ -216,7 +218,8 @@ public class PlayerController : MonoBehaviour
     {
         hasKeyCard = true;
         keycards += 1;
-        print("keycards = " + keycards);
+        totalKeyCards += 1;
+        print("totalKeyCards = " + totalKeyCards);
         print(hasKeyCard);
     }
 
@@ -226,6 +229,13 @@ public class PlayerController : MonoBehaviour
         {
             hasKeyCard = false;
         }      
+    }
+    public void FinalKeyCards()
+    {
+        if(totalKeyCards >= 4)
+        {
+            AllKeyCards = true; 
+        }
     }
 }
 
