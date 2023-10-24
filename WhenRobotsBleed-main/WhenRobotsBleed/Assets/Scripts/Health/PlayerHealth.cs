@@ -12,17 +12,21 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject player;
     public Transform respawnPoint; 
+    
+    [SerializeField]
+    private AudioClip _hurtSound;
+    private AudioSource _myAudioSource;
 
     void Awake()
     {
         currentHealth = maxHealth;
-
+        _myAudioSource = GetComponent<AudioSource>();
     }
     //take dmg 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        
+        _myAudioSource.PlayOneShot(_hurtSound, 0.2F);
         if (currentHealth <= 0)
         {
             Die();

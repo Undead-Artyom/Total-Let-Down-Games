@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
     public float dashingCooldown = 1f;
     private float dashCD;
 
+    public float KBForce = 5f;
+    public float KBCounter = 0f;
+    public float KBTotalTime = 0.2f;
+    public bool KnockFromRight;
+
     private Animator animator;
 
     //keycard check 
@@ -51,11 +56,6 @@ public class PlayerController : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         //dashCD = dashingCooldown;
-    }
-
-    void Start()
-    {
-        Debug.Log("");
     }
 
     void Update()
@@ -170,7 +170,22 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
+        if(KBCounter <= 0f)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
+        else
+        {
+            if(KnockFromRight == true)
+            {
+                rb.velocity = new Vector2(-KBForce, KBForce);
+            }
+            if(KnockFromRight == false)
+            {
+                rb.velocity = new Vector2(KBForce, KBForce);
+            }
+            KBCounter -= Time.deltaTime;
+        }
         //movment here 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
