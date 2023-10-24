@@ -169,6 +169,10 @@ MonoBehaviour:
   dashingPower: 10
   dashingTime: 0.5
   dashingCooldown: 2
+  KBForce: 5
+  KBCounter: 0
+  KBTotalTime: 0.2
+  KnockFromRight: 0
   hasKeyCard: 0
   keycards: 0
   AllKeyCards: 0
@@ -188,6 +192,7 @@ MonoBehaviour:
   currentHealth: 0
   player: {fileID: 959832947672091316}
   respawnPoint: {fileID: 0}
+  _hurtSound: {fileID: 8300000, guid: c08ebb070dd2eb14a9b235088e0c8fe8, type: 3}
 --- !u!114 &959832947672091264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6f25278e950984080ee2fc32156f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashClip: {fileID: 8300000, guid: 5ec038b2396ee02498c7a929f57436b0, type: 3}
+  DashClip: {fileID: 8300000, guid: e4aaee4a22c3bd745982ab912c453ca7, type: 3}
   JumpClip: {fileID: 8300000, guid: ff00a4ea52bf3954fbfda56bb0477e05, type: 3}
   BlasterClip: {fileID: 8300000, guid: b5d9a921c97b000458354a4f57a87a9c, type: 3}
   AttackClip: {fileID: 8300000, guid: a319f788d22de154a985a22ea1ba6b91, type: 3}
