@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 638936411157728253}
   - component: {fileID: 2062014448040749233}
   - component: {fileID: 8235440648810164265}
+  - component: {fileID: 1337969951336918041}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +184,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 10
   cooldownTime: 2
+--- !u!114 &1337969951336918041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638936411157728254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d9ff69ecb6dd949809104baa5581df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 0
 --- !u!1 &8051007600835724707
 GameObject:
   m_ObjectHideFlags: 0

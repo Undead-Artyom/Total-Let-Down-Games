@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        _myAudioSource.PlayOneShot(_hurtSound, 0.2F);
+        _myAudioSource.PlayOneShot(_hurtSound, 0.8F);
         if (currentHealth <= 0)
         {
             Die();

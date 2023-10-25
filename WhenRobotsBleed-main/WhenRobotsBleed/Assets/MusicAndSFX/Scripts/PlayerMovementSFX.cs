@@ -45,7 +45,7 @@ public class PlayerMovementSFX : MonoBehaviour
 
         if (pc.hasDash == true && Input.GetKeyDown(KeyCode.L))
         {
-            asource.PlayOneShot(DashClip, 0.5f);
+            asource.PlayOneShot(DashClip, 0.8f);
         }
                 
         if (Input.GetKeyDown(KeyCode.Space))

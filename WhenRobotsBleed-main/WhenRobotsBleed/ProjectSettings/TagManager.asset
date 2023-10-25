@@ -7,6 +7,8 @@ TagManager:
   - GM
   - Sword
   - Bullet
+  - Enemy
+  - Platfrom
   layers:
   - Default
   - TransparentFX

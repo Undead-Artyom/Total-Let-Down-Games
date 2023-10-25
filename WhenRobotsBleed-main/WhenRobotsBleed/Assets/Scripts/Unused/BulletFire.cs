@@ -26,6 +26,10 @@ public class BulletFire : MonoBehaviour
 
 		//Instantiate(impactEffect, transform.position, transform.rotation);
 
-		Destroy(gameObject);
-	}
+		/*if(hitInfo.gameObject.tag == "Ground" || hitInfo.gameObject.tag == "enemy")
+		{
+
+		}*/
+        Destroy(this.gameObject);
+    }
 }
