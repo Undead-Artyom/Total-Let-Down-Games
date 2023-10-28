@@ -6,18 +6,18 @@ using UnityEngine;
 public class SwitchBehaviour : MonoBehaviour
 {
     public GameObject switch1;
-    public GameObject switch2;
+    //public GameObject switch2;
 
     public GameObject thisSwitch;
     AudioSource asource;
     public AudioClip switchClip;
 
-    [SerializeField] bool swtichOn;
+    public bool swtichOn;
 
     void Start()
     {
         thisSwitch = this.gameObject;
-        swtichOn = true;
+        //swtichOn = true;
         asource = GetComponent<AudioSource>();
     }
 
@@ -35,13 +35,13 @@ public class SwitchBehaviour : MonoBehaviour
             if (swtichOn)
             {
                 switch1.gameObject.SetActive(false);
-                switch2.gameObject.SetActive(true);
+                //switch2.gameObject.SetActive(true);
                 swtichOn = false;
             }
             else if (!swtichOn)
             {
                 switch1.gameObject.SetActive(true);
-                switch2.gameObject.SetActive(false);
+                //switch2.gameObject.SetActive(false);
                 swtichOn = true;
             }
         }

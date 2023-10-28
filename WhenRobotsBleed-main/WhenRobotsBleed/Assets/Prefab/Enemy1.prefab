@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacd2cf01f4dfb94789cd3abb35a98d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 20
   cooldownTime: 2
 --- !u!114 &1337969951336918041
 MonoBehaviour:
