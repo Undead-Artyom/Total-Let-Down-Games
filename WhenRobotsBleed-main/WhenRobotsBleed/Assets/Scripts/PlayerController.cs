@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     public float KBForce = 5f;
     public float KBCounter = 0f;
     public float KBTotalTime = 0.2f;
-    public bool KnockFromRight;
+    public bool KnockFromRight = true;
 
     private Animator animator;
 
@@ -171,29 +171,21 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isDashing)
-        {
+        if (isDashing){
             return;
         }
-        if(KBCounter <= 0f)
-        {
+        if(KBCounter <= 0f){
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }
-        else
-        {
-            if(KnockFromRight == true)
-            {
-                rb.velocity = new Vector2(-KBForce, KBForce);
-            }
-            if(KnockFromRight == false)
-            {
+        else{
+            if(KnockFromRight == false){
                 rb.velocity = new Vector2(KBForce, KBForce);
+            }
+            if(KnockFromRight == true){
+                rb.velocity = new Vector2(-KBForce, KBForce);
             }
             KBCounter -= Time.deltaTime;
         }
-        //movment here 
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
     }
 
     private bool checkGrounded()
