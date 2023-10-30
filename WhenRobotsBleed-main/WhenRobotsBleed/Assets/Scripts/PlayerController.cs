@@ -30,10 +30,14 @@ public class PlayerController : MonoBehaviour
     public bool hasDash = false;
     private bool canDash = true;
     private bool isDashing;
-    public float dashingPower = 24f;
-    public float dashingTime = 0.2f;
+    [SerializeField]
+    private float dashingPower = 24f;
+    [SerializeField]
+    private float dashingTime = 0.2f;
+    [SerializeField]
     public float dashingCooldown = 1f;
-    private float dashCD;
+    [SerializeField]
+    private float dashCD = 1f;
 
     public float KBForce = 5f;
     public float KBCounter = 0f;
@@ -60,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).speed);
         if (dashCD >= 0)
         {   
             dashCD -= Time.deltaTime;
@@ -219,14 +224,34 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
         float originalGravity = rb.gravityScale; 
         rb.gravityScale = 0f;
-        rb.velocity = new Vector2(horizontalInput * dashingPower, 0f);
-        tr.emitting = true;
-        yield return new WaitForSeconds(dashingTime);
-        tr.emitting = false;
-        rb.gravityScale = originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(dashingTime);
-        canDash = true;
+        if(isFacingRight == true){
+            rb.velocity = new Vector2(dashingPower, 0f);
+            tr.emitting = true;
+            yield return new WaitForSeconds(dashingTime);
+            tr.emitting = false;
+            rb.gravityScale = originalGravity;
+            isDashing = false;
+            yield return new WaitForSeconds(dashingTime);
+            canDash = true;
+        }
+        else{
+            rb.velocity = new Vector2(-dashingPower, 0f);
+            tr.emitting = true;
+            yield return new WaitForSeconds(dashingTime);
+            tr.emitting = false;
+            rb.gravityScale = originalGravity;
+            isDashing = false;
+            yield return new WaitForSeconds(dashingTime);
+            canDash = true;
+        }
+        //rb.velocity = new Vector2(horizontalInput * dashingPower, 0f);
+        // tr.emitting = true;
+        // yield return new WaitForSeconds(dashingTime);
+        // tr.emitting = false;
+        // rb.gravityScale = originalGravity;
+        // isDashing = false;
+        // yield return new WaitForSeconds(dashingTime);
+        // canDash = true;
     }
 
     public void HasAKeyCard()
