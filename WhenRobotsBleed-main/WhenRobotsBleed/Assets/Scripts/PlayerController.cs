@@ -171,11 +171,20 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+
         if (isDashing){
             return;
         }
         if(KBCounter <= 0f){
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            if(Input.GetKey(KeyCode.LeftShift)){
+                animator.SetBool("IsRunning", true);
+                rb.velocity = new Vector2(horizontal * speed * 1.5f, rb.velocity.y);
+            }
+            else{
+                animator.SetBool("IsRunning", false);
+                rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            }
+            
         }
         else{
             if(KnockFromRight == false){
