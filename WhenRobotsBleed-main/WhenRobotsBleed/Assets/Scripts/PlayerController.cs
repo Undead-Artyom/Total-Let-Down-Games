@@ -31,11 +31,11 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     private bool isDashing;
     [SerializeField]
-    private float dashingPower = 24f;
+    private float dashingPower = 5f;
     [SerializeField]
-    private float dashingTime = 0.2f;
+    private float dashingTime = 0.5f;
     [SerializeField]
-    public float dashingCooldown = 1f;
+    public float dashingCooldown = 2f;
     [SerializeField]
     private float dashCD = 1f;
 
@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour
         float originalGravity = rb.gravityScale; 
         rb.gravityScale = 0f;
         if(isFacingRight == true){
-            rb.velocity = new Vector2(dashingPower, 0f);
+            rb.velocity = new Vector2(speed + dashingPower, 0f);
             tr.emitting = true;
             yield return new WaitForSeconds(dashingTime);
             tr.emitting = false;
@@ -236,7 +236,7 @@ public class PlayerController : MonoBehaviour
             canDash = true;
         }
         else{
-            rb.velocity = new Vector2(-dashingPower, 0f);
+            rb.velocity = new Vector2(-speed + -dashingPower, 0f);
             tr.emitting = true;
             yield return new WaitForSeconds(dashingTime);
             tr.emitting = false;
