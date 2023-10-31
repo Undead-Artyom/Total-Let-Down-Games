@@ -44,4 +44,10 @@ public class LeftAndRightSine_MovementBehaviour : BetweenPointsInSpace_MovementB
     {
         transform.position = Vector3.Lerp(_pointsInSpace[0].transform.position, _pointsInSpace[1].transform.position, Mathf.Sin(Time.time * _speed) * _amplitude + _amplitudeOffset);
     }
+
+    void OnDestroy(){
+        foreach(GameObject go in _pointsInSpace){
+            Object.Destroy(go);
+        }
+    }
 }
