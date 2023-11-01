@@ -11,8 +11,9 @@ public class PlayerHealth : MonoBehaviour
     private bool dead;
 
     public GameObject player;
-    public Transform respawnPoint; 
-    
+    public Transform respawnPoint;
+    public Transform lastCheckPont;
+
     [SerializeField]
     private AudioClip _hurtSound;
     private AudioSource _myAudioSource;
@@ -21,17 +22,33 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         _myAudioSource = GetComponent<AudioSource>();
+        lastCheckPont = GetComponent<Transform>();
     }
     //take dmg 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         _myAudioSource.PlayOneShot(_hurtSound, 0.8F);
+        print("Current HP = " + currentHealth);
         if (currentHealth <= 0)
         {
             Die();
         }
         
+    }
+    private void Update()
+    {
+        respawnPoint = lastCheckPont;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Checkpoint")
+        {
+
+            lastCheckPont = other.transform;
+            print(respawnPoint.name);
+        }
     }
 
     //when player die

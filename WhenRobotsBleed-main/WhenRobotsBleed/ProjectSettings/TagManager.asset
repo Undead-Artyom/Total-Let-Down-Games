@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Enemy
   - Platfrom
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

@@ -5,20 +5,27 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour
 {
 
-    private PlayerHealth cp; 
+    PlayerHealth cp;
+    public Transform lastCheckPont;
+    public GameObject checkPontPrefab;
 
     void Start()
     {
-        //cp = GetComponent<PlayerHealth>();
+        lastCheckPont = GetComponent<Transform>();
+        cp = GetComponent<PlayerHealth>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    /*void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        lastCheckPont.position = checkPontPrefab.gameObject.transform.position;
+        if(other.gameObject.tag == "Player")
         {
             //gm.lastCheckPointPos = transform.position;
-            Debug.Log("CheckPointTriggred!");
-           // cp.respawnPoint = transform;
+            Debug.Log("CheckPointTriggred!" + checkPontPrefab);
+            if(cp != null)
+            {
+                cp.respawnPoint = lastCheckPont;
+            }
         }
-    }
+    }*/
 }
