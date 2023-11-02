@@ -9,6 +9,7 @@ public class SimpleEnemyAI : MonoBehaviour
     [SerializeField] private float detectDistance = 3f;
     [SerializeField] private float disengageDistance = 3f;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask enemyLayer;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -17,6 +18,8 @@ public class SimpleEnemyAI : MonoBehaviour
     private bool isFacingRight = true;
     private bool isPatrolling = true;
     private bool isAttacking = false;
+
+    public Transform eyes; //for the eyes of enemy 
 
     void Awake()
     {
@@ -30,6 +33,14 @@ public class SimpleEnemyAI : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
+    //flip enemy when coliding wall or others (not player) 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Flip();
+        }
+    }
 
     void FixedUpdate()
     {
@@ -50,7 +61,7 @@ public class SimpleEnemyAI : MonoBehaviour
             }
 
             // Stop moving while attacking
-            if (distanceToTarget <= 1.5f && !isAttacking)
+            /*if (distanceToTarget <= 1.5f && !isAttacking)
             {
                 rb.velocity = Vector2.zero;
                 isAttacking = true;
@@ -62,7 +73,7 @@ public class SimpleEnemyAI : MonoBehaviour
             if (distanceToTarget > 1.5f)
             {
                 isAttacking = false;
-            }
+            }*/
 
             if (distanceToTarget >= disengageDistance)
             {
@@ -74,17 +85,18 @@ public class SimpleEnemyAI : MonoBehaviour
             direction = isFacingRight ? Vector2.right : Vector2.left;
             float distanceToStart = Mathf.Abs(transform.position.x - rb.position.x);
 
-            if (distanceToStart >= patrolDistance || Physics2D.Raycast(transform.position, direction, 1f, groundLayer))
+            if (distanceToStart >= patrolDistance || Physics2D.Raycast(eyes.position, direction, 0.8f, groundLayer))
             {
                 Flip();
             }
+
 
             // try to detect player
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, detectDistance, LayerMask.GetMask("Player"));
 
             if (hit.collider != null)
             {
-                // Debug.DrawRay(transform.position, direction.normalized * detectDistance, Color.green);
+                 Debug.DrawRay(transform.position, direction.normalized * detectDistance, Color.green);
                 if (hit.collider.CompareTag("Player"))
                 {
                     //Debug.Log("Saw Player");

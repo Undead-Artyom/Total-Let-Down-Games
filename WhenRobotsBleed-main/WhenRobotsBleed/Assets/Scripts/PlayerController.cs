@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
 
     private bool checkGrounded()
     {
-        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, LayerMask.GetMask("Platform", "Floating Platform", "Ground"));
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .05f, LayerMask.GetMask("Platform", "Floating Platform", "Ground"));
     }
 
     public bool canAttack()

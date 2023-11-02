@@ -102,7 +102,7 @@ public class HunterAI : MonoBehaviour
             }
 
             // Stop moving while attacking
-            if (distanceToTarget <= 1.5f && !isAttacking)
+            /*if (distanceToTarget <= 1.5f && !isAttacking)
             {
                 rb.velocity = Vector2.zero;
                 isAttacking = true;
@@ -114,7 +114,7 @@ public class HunterAI : MonoBehaviour
             if (distanceToTarget > 1.5f)
             {
                 isAttacking = false;
-            }
+            }*/
         }
         // Patrol
         if (isPatrolling)

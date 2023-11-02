@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1709655208431194264
 Transform:
   m_ObjectHideFlags: 0
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChaseBGM: {fileID: 8300000, guid: a05fa03d2c726e448bdd5603336825da, type: 3}
+  musicStage: {fileID: 0}
+  bgm: {fileID: 0}
 --- !u!61 &1709655208431194245
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +141,8 @@ GameObject:
   - component: {fileID: 1709655210114435666}
   - component: {fileID: 1709655210114435667}
   - component: {fileID: 1709655210114435678}
-  m_Layer: 10
+  - component: {fileID: 50691061805759234}
+  m_Layer: 0
   m_Name: Enemy_hunter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,5 +299,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f8cd89cfb6dd342a560d83aad27cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 0
   cooldownTime: 2
+--- !u!114 &50691061805759234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709655210114435664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d9ff69ecb6dd949809104baa5581df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 50
