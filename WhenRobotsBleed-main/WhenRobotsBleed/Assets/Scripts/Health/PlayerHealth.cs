@@ -17,22 +17,33 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private AudioClip _hurtSound;
     private AudioSource _myAudioSource;
+    //for gameMenu
+    public PauseMenu pauseMenu;
+
+    //healthbar
+    public HealthBar healthBar;
 
     void Awake()
     {
         currentHealth = maxHealth;
         _myAudioSource = GetComponent<AudioSource>();
         lastCheckPont = GetComponent<Transform>();
+        healthBar.SetMaxHealth(currentHealth);
+        //pauseMenu = gameObject.GetComponent<PauseMenu>();  
     }
     //take dmg 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if(healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth);
+        }
         _myAudioSource.PlayOneShot(_hurtSound, 0.8F);
         print("Current HP = " + currentHealth);
         if (currentHealth <= 0)
         {
-            Die();
+            pauseMenu.GameOver();
         }
         
     }
@@ -54,12 +65,18 @@ public class PlayerHealth : MonoBehaviour
     //when player die
     private void Die()
     {
+        
+    }
+
+    public void RespawnCheckPoint()
+    {
         Debug.Log("player died");
         player.transform.position = respawnPoint.position;
         //player play die anim 
         //disable controle temp 
         // respawn player to last check point 
-        currentHealth = maxHealth; 
-    }    
-    
+        currentHealth = maxHealth;
+        pauseMenu.GameOverStop();
+    }
+
 }

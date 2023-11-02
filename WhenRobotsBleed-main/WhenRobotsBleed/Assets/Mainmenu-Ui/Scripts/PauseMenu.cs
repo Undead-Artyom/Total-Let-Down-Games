@@ -12,6 +12,10 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    public GameObject GameOverScreen; //for gameoverscreen
+
+    public GameObject player;
+
     // Update is called once per frame
     void Update()
     {
@@ -66,6 +70,16 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quitting game...");
+    }
+    public void GameOver()
+    {
+        GameOverScreen.SetActive(true);
+        player.SetActive(false);
+    }
+    public void GameOverStop()
+    {
+        GameOverScreen.SetActive(false);
+        player.SetActive(true);
     }
 }
 
