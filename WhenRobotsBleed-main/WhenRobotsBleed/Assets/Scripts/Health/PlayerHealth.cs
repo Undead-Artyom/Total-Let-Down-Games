@@ -18,13 +18,15 @@ public class PlayerHealth : MonoBehaviour
     private AudioClip _hurtSound;
     private AudioSource _myAudioSource;
     //for gameMenu
-    public PauseMenu pauseMenu;
+    public GameOverMenu gameOver;
 
     //healthbar
     public HealthBar healthBar;
 
     void Awake()
     {
+        gameOver = FindAnyObjectByType<GameOverMenu>();
+        healthBar = FindAnyObjectByType<HealthBar>();
         currentHealth = maxHealth;
         _myAudioSource = GetComponent<AudioSource>();
         lastCheckPont = GetComponent<Transform>();
@@ -43,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
         print("Current HP = " + currentHealth);
         if (currentHealth <= 0)
         {
-            pauseMenu.GameOver();
+            gameOver.GameOver();
         }
         
     }
@@ -76,7 +78,8 @@ public class PlayerHealth : MonoBehaviour
         //disable controle temp 
         // respawn player to last check point 
         currentHealth = maxHealth;
-        pauseMenu.GameOverStop();
+        healthBar.SetMaxHealth(currentHealth);
+        gameOver.GameOverStop();
     }
 
 }

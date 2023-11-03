@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 40
+  damage: 25
   rb: {fileID: 4407301252534565539}

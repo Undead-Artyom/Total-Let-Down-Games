@@ -12,9 +12,14 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
-    public GameObject GameOverScreen; //for gameoverscreen
+    //public GameObject GameOverScreen; //for gameoverscreen
 
-    public GameObject player;
+   // public GameObject player;
+
+     void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -64,22 +69,6 @@ public class PauseMenu : MonoBehaviour
     public void CloseControls()
     {
         controlsScreen.SetActive(false);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-        Debug.Log("Quitting game...");
-    }
-    public void GameOver()
-    {
-        GameOverScreen.SetActive(true);
-        player.SetActive(false);
-    }
-    public void GameOverStop()
-    {
-        GameOverScreen.SetActive(false);
-        player.SetActive(true);
     }
 }
 

@@ -126,7 +126,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017508075, y: 0.16538686}
+  m_Offset: {x: -0.07495913, y: 0.06416497}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -137,7 +137,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7731303, y: 1.4366404}
+  m_Size: {x: 0.6363426, y: 1.0809968}
   m_EdgeRadius: 0
 --- !u!114 &638936411157728253
 MonoBehaviour:
@@ -161,6 +161,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
+  chaseSpeed: 0.01
   eyes: {fileID: 4557779416552907356}
 --- !u!114 &2062014448040749233
 MonoBehaviour:
@@ -182,7 +183,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638936411157728254}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aacd2cf01f4dfb94789cd3abb35a98d2, type: 3}
   m_Name: 

@@ -167,8 +167,9 @@ MonoBehaviour:
   jumpBufferTime: 0.2
   hasDash: 0
   dashingPower: 10
-  dashingTime: 0.5
+  dashingTime: 0.4
   dashingCooldown: 2
+  dashCD: 1
   KBForce: 5
   KBCounter: 0
   KBTotalTime: 0.2
@@ -192,7 +193,10 @@ MonoBehaviour:
   currentHealth: 0
   player: {fileID: 959832947672091316}
   respawnPoint: {fileID: 0}
+  lastCheckPont: {fileID: 0}
   _hurtSound: {fileID: 8300000, guid: c08ebb070dd2eb14a9b235088e0c8fe8, type: 3}
+  gameOver: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &959832947672091264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasSword: 0
-  attackBoxColider: {fileID: 7708674225359931282}
+  attackBoxColider: {fileID: 3057562459409993262}
   swordSprite: {fileID: 9104245626955890859}
 --- !u!82 &959832947672091322
 AudioSource:
@@ -476,11 +480,11 @@ GameObject:
   - component: {fileID: 4106206721233013157}
   m_Layer: 7
   m_Name: AttackArea
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4984577987663725639
 Transform:
   m_ObjectHideFlags: 0
@@ -509,7 +513,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6140311, y: -0.11758387}
+  m_Offset: {x: 0.99815047, y: -0.11758387}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -520,7 +524,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6250553, y: 0.93926775}
+  m_Size: {x: 2.3932936, y: 0.93926775}
   m_EdgeRadius: 0
 --- !u!114 &4106206721233013157
 MonoBehaviour:
@@ -534,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3221b83dbb30c8b4eb6fd1dbc6c640c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 50
 --- !u!1 &6222639742825501813
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,8 +564,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6222639742825501813}
   m_LocalRotation: {x: -0.38268343, y: 0.92387956, z: -0, w: 0}
-  m_LocalPosition: {x: 0.578, y: -0.009, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.87, y: -0.03, z: 0}
+  m_LocalScale: {x: 1.1810769, y: 1.1810769, z: 1.1810769}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 959832947672091323}

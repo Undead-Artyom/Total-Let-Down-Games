@@ -11,7 +11,7 @@ public class PlayerAtack : MonoBehaviour
 
     private float timeToAttack = 0.25f;
     private float timer = 0f;
-    public BoxCollider2D attackBoxColider;
+    public GameObject attackBoxColider;
     public SpriteRenderer swordSprite; 
     
 
@@ -41,7 +41,7 @@ public class PlayerAtack : MonoBehaviour
                 timer = 0;
                 attacking = false;
                 attackArea.SetActive(attacking);
-                attackBoxColider.enabled = false;
+                attackBoxColider.SetActive(false);
                 swordSprite.enabled = false;
             }
 
@@ -52,7 +52,7 @@ public class PlayerAtack : MonoBehaviour
     {
         attacking = true;
         attackArea.SetActive(attacking);
-        attackBoxColider.enabled = true;
+        attackBoxColider.SetActive(true);
         swordSprite.enabled = true;
     }
 }

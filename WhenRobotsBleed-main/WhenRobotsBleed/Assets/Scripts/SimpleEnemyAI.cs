@@ -11,6 +11,7 @@ public class SimpleEnemyAI : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask enemyLayer;
 
+
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Transform target;

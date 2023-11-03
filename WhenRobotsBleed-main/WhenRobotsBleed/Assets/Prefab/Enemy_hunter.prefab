@@ -276,17 +276,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2a8991dcf2b23408fed2e0d3ea710b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 3
+  _movementSpeed: 2
   patrolDistance: 2
   detectDistance: 5
-  jumpForce: 15
+  jumpForce: 10
   groundCheckDistance: 0.6
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   floatingPlatformsLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 64
 --- !u!114 &1709655210114435678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709655210114435664}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34f8cd89cfb6dd342a560d83aad27cb5, type: 3}
   m_Name: 
