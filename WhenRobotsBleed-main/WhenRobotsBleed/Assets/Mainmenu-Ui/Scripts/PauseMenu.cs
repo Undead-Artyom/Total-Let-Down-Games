@@ -29,8 +29,8 @@ public class PauseMenu : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
-                optionsScreen.SetActive(false);
-                controlsScreen.SetActive(false);
+                //optionsScreen.SetActive(false);
+                //controlsScreen.SetActive(false);
             }
             else
             {
@@ -41,6 +41,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        optionsScreen.SetActive(false);
+        controlsScreen.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
