@@ -70,5 +70,11 @@ public class PauseMenu : MonoBehaviour
     {
         controlsScreen.SetActive(false);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quitting");
+    }
 }
 
