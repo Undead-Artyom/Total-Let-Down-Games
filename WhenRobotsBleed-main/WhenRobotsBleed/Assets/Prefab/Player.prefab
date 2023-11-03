@@ -168,7 +168,7 @@ MonoBehaviour:
   hasDash: 0
   dashingPower: 10
   dashingTime: 0.4
-  dashingCooldown: 2
+  dashingCooldown: 1.2
   dashCD: 1
   KBForce: 5
   KBCounter: 0
