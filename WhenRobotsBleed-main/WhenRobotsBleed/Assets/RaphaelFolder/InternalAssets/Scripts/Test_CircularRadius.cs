@@ -42,13 +42,6 @@ public class Test_CircularRadius : MonoBehaviour
     void OnDrawGizmos(){
         if(_closestGrapplePointLocation != Vector3.zero){
             Debug.DrawRay(this.transform.position, _closestGrapplePointLocation-this.transform.position, Color.red, 0.01f, false);
-            /*
-            RaycastHit2D[] hitArray = Physics2D.RaycastAll(this.transform.position, _closestGrapplePointLocation-this.transform.position, float.PositiveInfinity);
-            for(int i = 0; i < hitArray.Length; i++){
-                Debug.Log(hitArray[i].transform.gameObject.name);
-            }
-            */
-            
         }
     }
     private void AddGrapplePoint(
