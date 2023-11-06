@@ -30,6 +30,8 @@ public class BulletFire : MonoBehaviour
 		{
 
 		}*/
-        Destroy(this.gameObject);
+		if(hitInfo.gameObject.name != "GrappleMachine"){
+			Destroy(this.gameObject);
+		}
     }
 }
