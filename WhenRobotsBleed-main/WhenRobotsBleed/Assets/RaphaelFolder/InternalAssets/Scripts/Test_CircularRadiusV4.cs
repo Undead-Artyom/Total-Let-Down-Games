@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test_CircularRadiusV3 : MonoBehaviour
+public class Test_CircularRadiusV4 : MonoBehaviour
 {
     private CircleCollider2D _circleCollider2D;
     private Dictionary<string, GameObject> _dictionaryOfInRangeGrapplePoints = new Dictionary<string, GameObject>();
@@ -12,6 +12,7 @@ public class Test_CircularRadiusV3 : MonoBehaviour
     private string _closestGrapplePointName = "";
     private bool _closestGrapplePointInLineOfSight = false;
     private SpriteRenderer _closestGrapplePointSpriteRenderer;
+    private Animator _closestGrapplePointAnimator;
     private Color _nonClosestGrapplePointColor = new Color(1,0,0);
     private Color _closestGrapplePointColor = new Color(0,0,1);
     private Color _closestGrapplePointInLineOfSightRay = new Color(0,1,0);
@@ -32,6 +33,7 @@ public class Test_CircularRadiusV3 : MonoBehaviour
                 ref _closestGrappleDistance,
                 ref _closestGrapplePointLocation,
                 ref _closestGrapplePointSpriteRenderer,
+                ref _closestGrapplePointAnimator,
                 ref _dictionaryOfInRangeGrapplePoints
             );
         }
@@ -45,6 +47,7 @@ public class Test_CircularRadiusV3 : MonoBehaviour
                 ref _closestGrappleDistance,
                 ref _closestGrapplePointLocation,
                 ref _closestGrapplePointSpriteRenderer,
+                ref _closestGrapplePointAnimator,
                 ref _dictionaryOfInRangeGrapplePoints
             );
         }
@@ -63,6 +66,7 @@ public class Test_CircularRadiusV3 : MonoBehaviour
             ref _closestGrapplePointLocation,
             ref _closestGrapplePointInLineOfSight,
             ref _closestGrapplePointSpriteRenderer,
+            ref _closestGrapplePointAnimator,
             ref _nonClosestGrapplePointColor,
             ref _closestGrapplePointColor,
             ref _closestGrapplePointNotInLineOfSightColor,
@@ -89,15 +93,19 @@ public class Test_CircularRadiusV3 : MonoBehaviour
         ref float closestGrappleDistance,
         ref Vector3 closestGrapplePointLocation,
         ref SpriteRenderer closestGrapplePointSpriteRenderer,
+        ref Animator closestGrapplePointAnimator,
         ref Dictionary<string, GameObject> dictionaryOfGrapplePoints
     ) {
+        Animator animator = currCollider2D.gameObject.GetComponent<Animator>();
+        animator.enabled = false;
         SpriteRenderer spriteRenderer = currCollider2D.gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = true;
         if(dictionaryOfGrapplePoints.Count == 0){
             closestGrapplePointName = currCollider2D.gameObject.name;
             closestGrapplePointLocation = currCollider2D.gameObject.transform.position;
             closestGrappleDistance = Vector3.Distance(this.gameObject.transform.position, closestGrapplePointLocation);
-            closestGrapplePointSpriteRenderer = spriteRenderer;
+            closestGrapplePointSpriteRenderer = null;
+            closestGrapplePointAnimator = animator;
         }
         dictionaryOfGrapplePoints.Add(currCollider2D.gameObject.name, currCollider2D.gameObject);
     }
@@ -107,8 +115,11 @@ public class Test_CircularRadiusV3 : MonoBehaviour
         ref float closestGrappleDistance,
         ref Vector3 closestGrapplePointLocation,
         ref SpriteRenderer closestGrapplePointSpriteRenderer,
+        ref Animator closestGrapplePointAnimator,
         ref Dictionary<string, GameObject> dictionaryOfGrapplePoints
     ) {
+        Animator animator = currCollider2D.gameObject.GetComponent<Animator>();
+        animator.enabled = false;
         SpriteRenderer spriteRenderer = currCollider2D.gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
         if(dictionaryOfGrapplePoints.Count == 1){
@@ -116,6 +127,7 @@ public class Test_CircularRadiusV3 : MonoBehaviour
             closestGrapplePointLocation = Vector3.zero;
             closestGrappleDistance = 0f;
             closestGrapplePointSpriteRenderer = null;
+            closestGrapplePointAnimator = null;
         }
         dictionaryOfGrapplePoints.Remove(currCollider2D.gameObject.name);
     }
@@ -125,6 +137,7 @@ public class Test_CircularRadiusV3 : MonoBehaviour
         ref Vector3 closestGrapplePointLocation,
         ref bool closestGrapplePointInLineOfSight,
         ref SpriteRenderer closestGrapplePointSpriteRenderer,
+        ref Animator closestGrapplePointAnimator,
         ref Color nonClosestGrapplePointColor,
         ref Color closestGrapplePointColor,
         ref Color closestGrapplePointNotInLineOfSightColor,

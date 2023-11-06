@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test_CircularRadiusV3 : MonoBehaviour
+public class Test_CircularRadiusV5 : MonoBehaviour
 {
     private CircleCollider2D _circleCollider2D;
     private Dictionary<string, GameObject> _dictionaryOfInRangeGrapplePoints = new Dictionary<string, GameObject>();
@@ -74,13 +74,6 @@ public class Test_CircularRadiusV3 : MonoBehaviour
             if(_closestGrapplePointInLineOfSight == true){
                 Debug.DrawRay(this.transform.position, _closestGrapplePointLocation-this.transform.position, _closestGrapplePointInLineOfSightRay, 0.01f, false);
             }
-            /*
-            RaycastHit2D[] hitArray = Physics2D.RaycastAll(this.transform.position, _closestGrapplePointLocation-this.transform.position, float.PositiveInfinity);
-            for(int i = 0; i < hitArray.Length; i++){
-                Debug.Log(hitArray[i].transform.gameObject.name);
-            }
-            */
-            
         }
     }
     private void AddGrapplePoint(
@@ -92,7 +85,7 @@ public class Test_CircularRadiusV3 : MonoBehaviour
         ref Dictionary<string, GameObject> dictionaryOfGrapplePoints
     ) {
         SpriteRenderer spriteRenderer = currCollider2D.gameObject.GetComponent<SpriteRenderer>();
-        spriteRenderer.enabled = true;
+        //spriteRenderer.enabled = true;
         if(dictionaryOfGrapplePoints.Count == 0){
             closestGrapplePointName = currCollider2D.gameObject.name;
             closestGrapplePointLocation = currCollider2D.gameObject.transform.position;
@@ -138,12 +131,13 @@ public class Test_CircularRadiusV3 : MonoBehaviour
                 RaycastHit2D[] hitArray = Physics2D.RaycastAll(this.transform.position, closestGrapplePointLocation-this.transform.position, closestGrappleDistance);
                 if(hitArray[2].transform.gameObject.tag == "GrapplePoint" || hitArray[1].transform.gameObject.tag == "GrapplePoint"){
                     closestGrapplePointInLineOfSight = true;
-                    closestGrapplePointSpriteRenderer.color = closestGrapplePointColor;
+                    closestGrapplePointSpriteRenderer.enabled = true;
+                    //closestGrapplePointSpriteRenderer.color = closestGrapplePointColor;
                 }
                 else{
                     closestGrapplePointInLineOfSight = false;
                     //closestGrapplePointSpriteRenderer.color = nonClosestGrapplePointColor;
-                    closestGrapplePointSpriteRenderer.color = closestGrapplePointNotInLineOfSightColor;
+                    closestGrapplePointSpriteRenderer.enabled = false;
                 }
             }
         }
@@ -155,17 +149,21 @@ public class Test_CircularRadiusV3 : MonoBehaviour
                     closestGrapplePointLocation = kV.Value.transform.position;
                     closestGrappleDistance = currentGrappleDistance;
                     closestGrapplePointName = kV.Key;
-                    closestGrapplePointSpriteRenderer.color = nonClosestGrapplePointColor;
+                    //closestGrapplePointSpriteRenderer.color = nonClosestGrapplePointColor;
+                    Debug.Log("here");
+                    closestGrapplePointSpriteRenderer.enabled = false;
                     closestGrapplePointSpriteRenderer = kV.Value.gameObject.GetComponent<SpriteRenderer>();
                     RaycastHit2D[] hitArray = Physics2D.RaycastAll(this.transform.position, closestGrapplePointLocation-this.transform.position, closestGrappleDistance);
                     if(hitArray[2].transform.gameObject.tag == "GrapplePoint"){
                         closestGrapplePointInLineOfSight = true;
-                        closestGrapplePointSpriteRenderer.color = closestGrapplePointColor;
+                        closestGrapplePointSpriteRenderer.enabled = true;
+                        //closestGrapplePointSpriteRenderer.color = closestGrapplePointColor;
                     }
                     else{
                         closestGrapplePointInLineOfSight = false;
+                        closestGrapplePointSpriteRenderer.enabled = false;
                         //closestGrapplePointSpriteRenderer.color = nonClosestGrapplePointColor;
-                        closestGrapplePointSpriteRenderer.color = closestGrapplePointNotInLineOfSightColor;
+                        //closestGrapplePointSpriteRenderer.color = closestGrapplePointNotInLineOfSightColor;
                     }
                     //closestGrapplePointSpriteRenderer.color = closestGrapplePointColor;
                 }
@@ -174,12 +172,14 @@ public class Test_CircularRadiusV3 : MonoBehaviour
                     RaycastHit2D[] hitArray = Physics2D.RaycastAll(this.transform.position, closestGrapplePointLocation-this.transform.position, closestGrappleDistance);
                     if(hitArray[2].transform.gameObject.tag == "GrapplePoint"){
                         closestGrapplePointInLineOfSight = true;
-                        closestGrapplePointSpriteRenderer.color = closestGrapplePointColor;
+                        closestGrapplePointSpriteRenderer.enabled = true;
+                        //closestGrapplePointSpriteRenderer.color = closestGrapplePointColor;
                     }
                     else{
                         closestGrapplePointInLineOfSight = false;
+                        closestGrapplePointSpriteRenderer.enabled = false;
                         //closestGrapplePointSpriteRenderer.color = nonClosestGrapplePointColor;
-                        closestGrapplePointSpriteRenderer.color = closestGrapplePointNotInLineOfSightColor;
+                        //closestGrapplePointSpriteRenderer.color = closestGrapplePointNotInLineOfSightColor;
                     }
                 }
             }
