@@ -39,6 +39,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float dashCD = 1f;
 
+    private bool hasGrapple = true;
+    private bool canGrapple = true;
+    private bool isGrappling;
+    [SerializeField]
+    private float grapplePower = 5f;
+    [SerializeField]
+    private float grappleTime = 0.5f;
+    [SerializeField]
+    private float grappleCD = 2f;
+    [SerializeField]
+    private float grappleCurrCD = 1f;
+    private Test_CircularRadiusV7 grappleTracker;
+
     public float KBForce = 5f;
     public float KBCounter = 0f;
     public float KBTotalTime = 0.2f;
@@ -59,7 +72,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
         coll = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        //grappleTracker = GetComponent<Test_CircularRadiusV7>();
         //dashCD = dashingCooldown;
+    }
+
+    void Start()
+    {
+        grappleTracker = this.transform.Find("GrappleMachine").GetComponent<Test_CircularRadiusV7>();
     }
 
     void Update()
@@ -69,12 +88,18 @@ public class PlayerController : MonoBehaviour
         {   
             dashCD -= Time.deltaTime;
         }
-
+        if (grappleCurrCD >= 0)
+        {   
+            grappleCurrCD -= Time.deltaTime;
+        }
         if (isDashing)
         {
             return;
         }
-
+        if (isGrappling)
+        {
+            return;
+        }
         horizontalInput = Input.GetAxisRaw("Horizontal");
         isGrounded = checkGrounded();
 
@@ -105,6 +130,18 @@ public class PlayerController : MonoBehaviour
                 {
                     StartCoroutine(Dash());
                     dashCD = dashingCooldown;
+                }
+
+            }
+        }
+        if (hasGrapple)
+        {
+            if (Input.GetKeyDown(KeyCode.H) && canGrapple)
+            {
+                if (grappleCurrCD <= 0f && grappleTracker.closestGrapplePointInLineOfSight)
+                {
+                    StartCoroutine(Grapple());
+                    grappleCurrCD = grappleCD;
                 }
 
             }
@@ -175,6 +212,10 @@ public class PlayerController : MonoBehaviour
         if (isDashing){
             return;
         }
+        if (isGrappling)
+        {
+            return;
+        }
         if(KBCounter <= 0f){
             if(Input.GetKey(KeyCode.LeftShift)){
                 animator.SetBool("IsRunning", true);
@@ -217,6 +258,23 @@ public class PlayerController : MonoBehaviour
             //transform.localScale = localScale;
             transform.Rotate(0f, 180f, 0f);
         }
+    }
+    private IEnumerator Grapple()
+    {
+        canGrapple = false;
+        isGrappling = true;
+        canDash = false;
+        isDashing = false;
+        float originalGravity = rb.gravityScale; 
+        rb.gravityScale = 0f;
+        //Debug.Log("here");
+        rb.velocity = (grappleTracker.closestGrapplePointLocation-this.transform.position) * (grappleTracker.closestGrappleDistance*0.4f);
+        yield return new WaitForSeconds(grappleTime);
+        rb.gravityScale = originalGravity;
+        //isDashing = false;
+        isGrappling = false;
+        canGrapple = true;
+        canDash = true;
     }
 
     private IEnumerator Dash()

@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5064180554845343560}
-  - component: {fileID: 4573283119674202393}
+  - component: {fileID: 1688419305193956631}
+  - component: {fileID: 1329194837608116760}
   m_Layer: 0
   m_Name: GrappleMachine
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4573283119674202393
+--- !u!114 &1688419305193956631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +42,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 3199373269641386220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d92ccbe1521345b40bbaf0f8be199747, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ef8909e91c5a9d42a218219b7dc44da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _circularLineOfSightRadius: 5
+  _objectTypeToTrack: 
+--- !u!114 &1329194837608116760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199373269641386220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa89979f40bf7c40979ca3f77687111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
