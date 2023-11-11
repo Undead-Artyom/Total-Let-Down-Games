@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private float grappleCD = 2f;
     [SerializeField]
     private float grappleCurrCD = 1f;
-    private Test_CircularRadiusV7 grappleTracker;
+    private ClosestPointTracker grappleTracker;
 
     public float KBForce = 5f;
     public float KBCounter = 0f;
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        grappleTracker = this.transform.Find("GrappleMachine").GetComponent<Test_CircularRadiusV7>();
+        grappleTracker = this.transform.Find("GrappleMachine").GetComponent<ClosestPointTracker>();
     }
 
     void Update()
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.H) && canGrapple)
             {
-                if (grappleCurrCD <= 0f && grappleTracker.closestGrapplePointInLineOfSight)
+                if (grappleCurrCD <= 0f && grappleTracker.closestPointInLineOfSight)
                 {
                     StartCoroutine(Grapple());
                     grappleCurrCD = grappleCD;
@@ -268,7 +268,7 @@ public class PlayerController : MonoBehaviour
         float originalGravity = rb.gravityScale; 
         rb.gravityScale = 0f;
         //Debug.Log("here");
-        rb.velocity = (grappleTracker.closestGrapplePointLocation-this.transform.position) * (grappleTracker.closestGrappleDistance*0.4f);
+        rb.velocity = (grappleTracker.closestPointLocation-this.transform.position) * (grappleTracker.closestDistance*0.4f);
         yield return new WaitForSeconds(grappleTime);
         rb.gravityScale = originalGravity;
         //isDashing = false;
