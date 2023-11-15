@@ -33,7 +33,7 @@ public class PlayerMovementSFX : MonoBehaviour
 
         }
 
-        if (pc.isGrounded && asource.isPlaying == false)
+        if (pc.isGrounded && asource.isPlaying == false) //Footsteps
 
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
