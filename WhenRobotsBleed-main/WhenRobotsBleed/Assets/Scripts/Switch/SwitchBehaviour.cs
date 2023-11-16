@@ -6,6 +6,10 @@ using UnityEngine;
 public class SwitchBehaviour : MonoBehaviour
 {
     public GameObject switch1;
+
+    //public Sprite sp1, sp2;
+    public GameObject ob1;
+    public GameObject ob2;
     //public GameObject switch2;
 
     public GameObject thisSwitch;
@@ -36,12 +40,18 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switch1.gameObject.SetActive(false);
                 //switch2.gameObject.SetActive(true);
+                //GetComponent<SpriteRenderer>().sprite = sp1;
+                ob1.GetComponent<SpriteRenderer>().enabled = false;
+                ob2.GetComponent<SpriteRenderer>().enabled = true;
                 swtichOn = false;
             }
             else if (!swtichOn)
             {
                 switch1.gameObject.SetActive(true);
                 //switch2.gameObject.SetActive(false);
+                //GetComponent<SpriteRenderer>().sprite = sp2;
+                ob1.GetComponent<SpriteRenderer>().enabled = true;
+                ob2.GetComponent<SpriteRenderer>().enabled = false;
                 swtichOn = true;
             }
         }
