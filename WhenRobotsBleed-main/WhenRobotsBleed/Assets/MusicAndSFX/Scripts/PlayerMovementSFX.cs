@@ -36,16 +36,16 @@ public class PlayerMovementSFX : MonoBehaviour
         if (pc.isGrounded && asource.isPlaying == false) //Footsteps
 
         {
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 asource.Play();
 
-            asource.volume = Random.Range(0.5f, 0.8f);
+            asource.volume = Random.Range(0.09f, 0.09f);
             asource.pitch = Random.Range(0.8f, 1.1f);
         }
 
         if (pc.hasDash == true && Input.GetKeyDown(KeyCode.L))
         {
-            asource.PlayOneShot(DashClip, 0.8f);
+            asource.PlayOneShot(DashClip, 1f);
         }
                 
         if (Input.GetKeyDown(KeyCode.Space))
