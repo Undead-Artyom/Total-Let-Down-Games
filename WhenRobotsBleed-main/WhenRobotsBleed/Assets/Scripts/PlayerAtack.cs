@@ -13,8 +13,14 @@ public class PlayerAtack : MonoBehaviour
     private float timer = 0f;
     public GameObject attackBoxColider;
     public SpriteRenderer swordSprite; 
-    
 
+    private WeponShoot _weponShoot;
+    private bool _canAttack;
+    public bool canAttack => _canAttack;
+
+    void Awake(){
+    
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +30,11 @@ public class PlayerAtack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasSword)
+        if (hasSword && _canAttack)
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
+                _weponShoot.ChangeCanShoot(false);
                 Attack();
             }
         }
@@ -43,11 +50,16 @@ public class PlayerAtack : MonoBehaviour
                 attackArea.SetActive(attacking);
                 attackBoxColider.SetActive(false);
                 swordSprite.enabled = false;
+                _weponShoot.ChangeCanShoot(true);
             }
 
         }
     }
-
+    public void ChangeCanAttack(bool val){
+        if(val == true || val == false){
+            _canAttack = val;
+        }
+    }
     private void Attack()
     {
         attacking = true;
