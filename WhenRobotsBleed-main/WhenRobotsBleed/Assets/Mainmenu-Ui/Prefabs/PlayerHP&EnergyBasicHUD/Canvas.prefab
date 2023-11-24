@@ -148,7 +148,6 @@ GameObject:
   - component: {fileID: 152095984976572213}
   - component: {fileID: 152095984976572210}
   - component: {fileID: 152095984976572214}
-  - component: {fileID: 5010652986212095537}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -264,20 +263,6 @@ MonoBehaviour:
   optionsScreen: {fileID: 7792206703641664030}
   controlsScreen: {fileID: 7803731876864200841}
   pauseMenuUI: {fileID: 152095984757415633}
-  GameOverScreen: {fileID: 0}
-  player: {fileID: 0}
---- !u!114 &5010652986212095537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152095984976572211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b36b95a52da46341a2c961030034a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &152095985002521080
 GameObject:
   m_ObjectHideFlags: 0
