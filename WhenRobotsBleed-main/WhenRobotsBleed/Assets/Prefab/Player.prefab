@@ -171,6 +171,10 @@ MonoBehaviour:
   dashingTime: 0.4
   dashingCooldown: 1.2
   dashCD: 1
+  grapplePower: 5
+  grappleTime: 0.5
+  grappleCD: 2
+  grappleCurrCD: 1
   KBForce: 5
   KBCounter: 0
   KBTotalTime: 0.2
