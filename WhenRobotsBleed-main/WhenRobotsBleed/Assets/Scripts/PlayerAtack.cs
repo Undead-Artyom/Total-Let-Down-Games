@@ -15,11 +15,11 @@ public class PlayerAtack : MonoBehaviour
     public SpriteRenderer swordSprite; 
 
     private WeponShoot _weponShoot;
-    private bool _canAttack;
+    private bool _canAttack = true;
     public bool canAttack => _canAttack;
 
     void Awake(){
-    
+        _weponShoot = GetComponent<WeponShoot>();
     }
     // Start is called before the first frame update
     void Start()

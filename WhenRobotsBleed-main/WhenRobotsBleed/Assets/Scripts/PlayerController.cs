@@ -21,21 +21,30 @@ public class PlayerController : MonoBehaviour
     public bool hasJump = true;
     private float horizontalInput;
 
+    private float _originalGravity;
+
     public float coyoteTime = 0.2f;
     private float coyoteTimeCounter; 
 
     public float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
 
-    public bool hasDash = false;
+    public bool hasDash = true;
     private bool canDash = true;
     private bool isDashing;
     [SerializeField]
     private float dashingPower = 5f;
     [SerializeField]
-    private float dashingTime = 0.5f;
+    private float _dashingTime = 0.5f;
+    public float dashingTime => _dashingTime;
+
+
     [SerializeField]
-    public float dashingCooldown = 2f;
+    private float _dashingCooldown = 2f;
+    public float dashingCooldown => _dashingCooldown;
+
+
+
     [SerializeField]
     private float dashCD = 1f;
 
@@ -72,8 +81,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
         coll = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        _originalGravity = rb.gravityScale;
         //grappleTracker = GetComponent<Test_CircularRadiusV7>();
-        //dashCD = dashingCooldown;
+        //dashCD = _dashingCooldown;
     }
 
     void Start()
@@ -124,14 +134,28 @@ public class PlayerController : MonoBehaviour
         //dash ablility 
         if (hasDash)
         {
+            /*
             if (Input.GetKeyDown(KeyCode.L) && canDash)
             {
+                Debug.Log("here");
                 if (dashCD <= 0f)
                 {
                     StartCoroutine(Dash());
-                    dashCD = dashingCooldown;
+                    dashCD = _dashingCooldown;
                 }
 
+            }
+            */
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                if(canDash)
+                {
+                    if (dashCD <= 0f)
+                    {
+                        StartCoroutine(Dash());
+                        dashCD = _dashingCooldown;
+                    }
+                }
             }
         }
         if (hasGrapple)
@@ -238,6 +262,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnDisable(){
+        CoroutinePrematureEnd();
+        StopAllMyCouroutines();
+    }
+
     private bool checkGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .05f, LayerMask.GetMask("Platform", "Floating Platform", "Ground"));
@@ -265,12 +294,13 @@ public class PlayerController : MonoBehaviour
         isGrappling = true;
         canDash = false;
         isDashing = false;
-        float originalGravity = rb.gravityScale; 
+        //float originalGravity = rb.gravityScale; 
+        _originalGravity = rb.gravityScale; 
         rb.gravityScale = 0f;
         //Debug.Log("here");
         rb.velocity = (grappleTracker.closestPointLocation-this.transform.position) * (grappleTracker.closestDistance*0.4f);
         yield return new WaitForSeconds(grappleTime);
-        rb.gravityScale = originalGravity;
+        rb.gravityScale = _originalGravity;
         //isDashing = false;
         isGrappling = false;
         canGrapple = true;
@@ -279,6 +309,8 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        canGrapple = false;
+        isGrappling = false;
         canDash = false;
         isDashing = true;
         float originalGravity = rb.gravityScale; 
@@ -286,30 +318,34 @@ public class PlayerController : MonoBehaviour
         if(isFacingRight == true){
             rb.velocity = new Vector2(speed + dashingPower, 0f);
             tr.emitting = true;
-            yield return new WaitForSeconds(dashingTime);
+            yield return new WaitForSeconds(_dashingTime);
             tr.emitting = false;
             rb.gravityScale = originalGravity;
             isDashing = false;
-            yield return new WaitForSeconds(dashingTime);
+            yield return new WaitForSeconds(_dashingTime);
             canDash = true;
+            canGrapple = true;
+            isGrappling = false;
         }
         else{
             rb.velocity = new Vector2(-speed + -dashingPower, 0f);
             tr.emitting = true;
-            yield return new WaitForSeconds(dashingTime);
+            yield return new WaitForSeconds(_dashingTime);
             tr.emitting = false;
             rb.gravityScale = originalGravity;
             isDashing = false;
-            yield return new WaitForSeconds(dashingTime);
+            yield return new WaitForSeconds(_dashingTime);
             canDash = true;
+            canGrapple = true;
+            isGrappling = false;
         }
         //rb.velocity = new Vector2(horizontalInput * dashingPower, 0f);
         // tr.emitting = true;
-        // yield return new WaitForSeconds(dashingTime);
+        // yield return new WaitForSeconds(_dashingTime);
         // tr.emitting = false;
         // rb.gravityScale = originalGravity;
         // isDashing = false;
-        // yield return new WaitForSeconds(dashingTime);
+        // yield return new WaitForSeconds(_dashingTime);
         // canDash = true;
     }
 
@@ -335,6 +371,19 @@ public class PlayerController : MonoBehaviour
         {
             AllKeyCards = true; 
         }
+    }
+
+    public void StopAllMyCouroutines(){
+        StopAllCoroutines();
+    }
+
+    public void CoroutinePrematureEnd(){
+        tr.emitting = false;
+        rb.gravityScale = _originalGravity;
+        isDashing = false;
+        canDash = true;
+        isGrappling = false;
+        canGrapple = true;
     }
 }
 
