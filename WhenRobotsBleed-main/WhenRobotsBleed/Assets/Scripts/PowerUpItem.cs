@@ -8,6 +8,7 @@ public class PowerUpItem : MonoBehaviour
     public bool swordGrant = false;
     public bool gunGrant = false;
     public bool dashGrant = false;
+    public bool GrabGrant = false;
     public AudioClip powerUpSound;
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,6 +32,13 @@ public class PowerUpItem : MonoBehaviour
             if (powerUpSound != null) AudioSource.PlayClipAtPoint(powerUpSound, gameObject.transform.position, 5.85f);
             Destroy(gameObject);
         }
+        if (isActive && collision.gameObject.GetComponent<PlayerController>())
+        {
+            if (GrabGrant) collision.gameObject.GetComponent<PlayerController>().hasGrapple = true;
+            if (powerUpSound != null) AudioSource.PlayClipAtPoint(powerUpSound, gameObject.transform.position, 1.85f);
+            Destroy(gameObject);
+        }
+
     }
 
     /*

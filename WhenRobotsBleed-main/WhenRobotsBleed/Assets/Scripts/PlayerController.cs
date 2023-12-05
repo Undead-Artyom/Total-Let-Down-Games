@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float dashCD = 1f;
 
-    private bool hasGrapple = true;
+    public bool hasGrapple = true; //change to public to alow for ablility unlock
     private bool canGrapple = true;
     private bool isGrappling;
     [SerializeField]

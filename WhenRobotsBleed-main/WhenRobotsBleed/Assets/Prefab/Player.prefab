@@ -168,9 +168,10 @@ MonoBehaviour:
   jumpBufferTime: 0.2
   hasDash: 0
   dashingPower: 10
-  dashingTime: 0.4
-  dashingCooldown: 1.2
+  _dashingTime: 0.5
+  _dashingCooldown: 2
   dashCD: 1
+  hasGrapple: 0
   grapplePower: 5
   grappleTime: 0.5
   grappleCD: 2
