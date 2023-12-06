@@ -14,7 +14,8 @@ public class PlayerMovementSFX : MonoBehaviour
     public AudioClip JumpClip;
     public AudioClip BlasterClip;
     public AudioClip AttackClip;
-   
+    public AudioClip GrappleClip;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -61,9 +62,15 @@ public class PlayerMovementSFX : MonoBehaviour
         }
 
 
-        if (playerAttack.hasSword && Input.GetKeyDown(KeyCode.J))
+        if (playerAttack.attacking && Input.GetKeyDown(KeyCode.J))
         {
             asource.PlayOneShot(AttackClip, 0.8f);
+        }
+
+        //sound for grapple 
+        if(pc.isGrappling && Input.GetKeyDown(KeyCode.K))
+        {
+            asource.PlayOneShot(GrappleClip, 0.8f);
         }
     }
 }

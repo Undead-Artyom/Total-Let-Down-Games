@@ -7,7 +7,7 @@ public class PlayerAtack : MonoBehaviour
     private GameObject attackArea = default;
     public bool hasSword = false; 
 
-    private bool attacking = false;
+    public bool attacking = false;
 
     private float timeToAttack = 0.25f;
     private float timer = 0f;

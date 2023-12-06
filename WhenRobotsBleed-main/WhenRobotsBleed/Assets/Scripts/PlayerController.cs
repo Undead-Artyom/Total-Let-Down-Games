@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     public bool hasGrapple = true; //change to public to alow for ablility unlock
     private bool canGrapple = true;
-    private bool isGrappling;
+    public bool isGrappling;
     [SerializeField]
     private float grapplePower = 5f;
     [SerializeField]
