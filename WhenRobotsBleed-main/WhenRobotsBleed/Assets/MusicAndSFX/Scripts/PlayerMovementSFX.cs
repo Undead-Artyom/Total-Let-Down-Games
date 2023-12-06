@@ -62,7 +62,7 @@ public class PlayerMovementSFX : MonoBehaviour
         }
 
 
-        if (playerAttack.attacking && Input.GetKeyDown(KeyCode.J))
+        if (playerAttack.canAttack && Input.GetKeyDown(KeyCode.J))
         {
             asource.PlayOneShot(AttackClip, 0.8f);
         }
