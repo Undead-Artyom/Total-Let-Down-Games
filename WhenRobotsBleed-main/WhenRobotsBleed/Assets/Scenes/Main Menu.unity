@@ -553,6 +553,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3119218200316831544, guid: 271bb31acccfafc4983e3eb975d9e058, type: 3}
+      propertyPath: firstlevel
+      value: Story Scene
+      objectReference: {fileID: 0}
     - target: {fileID: 7094182941394829744, guid: 271bb31acccfafc4983e3eb975d9e058, type: 3}
       propertyPath: m_IsActive
       value: 0
