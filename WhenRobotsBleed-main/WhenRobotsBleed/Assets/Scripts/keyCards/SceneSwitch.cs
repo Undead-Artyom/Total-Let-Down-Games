@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitch : MonoBehaviour
 {
     public string sceneNextlevel;
+    public bool TLevel = false;
     void OnTriggerEnter2D(Collider2D other)
     {
         //quick test to load next Scene trigger 
@@ -21,6 +22,10 @@ public class SceneSwitch : MonoBehaviour
                 {
                     pb.KeyCardUsed();
                     SceneManager.LoadScene(sceneNextlevel, LoadSceneMode.Single);
+                    if (TLevel)
+                    {
+                        //pb.KeyCardUsedT();
+                    }
                 }
             }
         }

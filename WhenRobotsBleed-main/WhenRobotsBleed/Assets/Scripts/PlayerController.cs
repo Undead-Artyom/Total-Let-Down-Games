@@ -365,6 +365,11 @@ public class PlayerController : MonoBehaviour
             hasKeyCard = false;
         }      
     }
+    public void KeyCardUsedT()
+    {
+        totalKeyCards = 0;
+        print("totalKeyCards = " + totalKeyCards);
+    }
     public void FinalKeyCards()
     {
         if(totalKeyCards >= 4)
